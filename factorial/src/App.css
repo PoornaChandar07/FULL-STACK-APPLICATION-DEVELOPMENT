@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root {
+  --primary: #6c63ff;
+  --primary-dark: #4b44cc;
+  --primary-light: #a89cff;
+  --secondary: #ff6584;
+  --accent: #43e97b;
+  --bg: #0f0f1a;
+  --bg-card: #1a1a2e;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 8px 32px rgba(108, 99, 255, 0.2);
+  --radius: 16px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── Animated Gradient Background ── */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.App::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(108, 99, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 101, 132, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(67, 233, 123, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: bgShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgShift {
+  0%   { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* ── Header ── */
+.App-header {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* ── Logo ── */
+.App-logo {
+  height: 38vmin;
+  max-height: 220px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 24px rgba(108, 99, 255, 0.6));
+  transition: filter var(--transition);
+}
+
+.App-logo:hover {
+  filter: drop-shadow(0 0 40px rgba(108, 99, 255, 0.9));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: logoFloat 6s ease-in-out infinite, App-logo-spin 20s linear infinite;
+  }
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-12px) rotate(180deg); }
+}
+
+/* ── Typography ── */
+.App-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  animation: fadeSlideUp 0.8s ease both;
+}
+
+.App-header p {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 520px;
+  animation: fadeSlideUp 0.8s 0.15s ease both;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Glass Card ── */
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: fadeSlideUp 0.8s 0.3s ease both;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(108, 99, 255, 0.3);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(108, 99, 255, 0.6);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-light);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: rgba(108, 99, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Link ── */
+.App-link {
+  color: var(--primary-light);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color var(--transition);
+}
+
+.App-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--primary-light);
+  transition: width var(--transition);
+}
+
+.App-link:hover { color: var(--primary); }
+.App-link:hover::after { width: 100%; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .App-logo { height: 28vmin; }
+  .card { padding: 1.25rem; }
+}
+
+/* ── Utility Classes ── */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.text-muted { color: var(--text-secondary); }
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

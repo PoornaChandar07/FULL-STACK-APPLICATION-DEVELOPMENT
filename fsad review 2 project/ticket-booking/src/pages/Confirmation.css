@@ -1,0 +1,83 @@
+.confirmation-page {
+  min-height: 100vh;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.confirmation-container {
+  background: white;
+  border-radius: 12px;
+  padding: 35px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.confirmation-container h2 {
+  color: #1a1a2e;
+  margin-bottom: 25px;
+}
+
+.ticket {
+  border: 2px dashed #e94560;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.ticket-header {
+  background: #e94560;
+  color: white;
+  padding: 15px;
+}
+
+.ticket-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.ticket-details {
+  padding: 15px;
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 0.9rem;
+}
+
+.ticket-row span:first-child {
+  color: #666;
+  font-weight: 500;
+}
+
+.ticket-row span:last-child {
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.confirmation-container button {
+  padding: 12px 30px;
+  background: #e94560;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.confirmation-container button:hover {
+  background: #c73652;
+}

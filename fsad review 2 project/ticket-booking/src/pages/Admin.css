@@ -1,0 +1,56 @@
+.admin-page {
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding: 40px 20px;
+}
+
+.admin-container {
+  background: white;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.admin-container h2 {
+  color: #1a1a2e;
+  margin-bottom: 5px;
+}
+
+.admin-container p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  background: #1a1a2e;
+  color: white;
+}
+
+thead th {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f0f2f5;
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+tbody td {
+  padding: 12px 15px;
+  color: #444;
+}
